@@ -1,0 +1,88 @@
+﻿@model RealtorsPortal.Models.Property
+
+@{
+    Layout = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Property</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+            }
+
+        img {
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-warning text-center" role="alert">
+            <h3 class="mb-4">Are you sure you want to delete this property?</h3>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4">
+                    <h4 class="mb-3">Property Details</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Address)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Address)</dd>
+
+                        <dt class="col-sm-4">Image</dt>
+                        <dd class="col-sm-8">
+                            <img src="@("~/Propertyimages/"+Model.Image)" asp-append-version=true width="200" height="200" />
+                        </dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Price)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Price)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Bedrooms)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Bedrooms)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Bathrooms)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Bathrooms)</dd>
+
+                        <dt class="col-sm-4">Agent</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Agent.Name)</dd>
+
+                        <dt class="col-sm-4">Private Seller</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.PrivateSeller.Name)</dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Property_Id" />
+                        <div class="d-grid gap-2 d-md-block">
+                            <input type="submit" value="Delete" class="btn btn-danger btn-lg me-3" />
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

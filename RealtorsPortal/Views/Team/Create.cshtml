@@ -1,0 +1,72 @@
+﻿@model RealtorsPortal.Models.Team
+
+@{
+    ViewData["Title"] = "Create Team Member";
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Team Member</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2>Create New Team Member</h2>
+        <hr />
+
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <!-- Team Member Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Designation -->
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label">Designation</label>
+                <input asp-for="Designation" class="form-control" required />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Upload Image</label>
+                <input asp-for="Image" class="form-control" type="file" required />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="3" required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group mt-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

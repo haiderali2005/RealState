@@ -1,0 +1,22 @@
+﻿@model List<Contactus>;
+@foreach (var item in Model)
+{
+    <div class="item">
+        <div class="testimonial">  
+            <div class="rate">
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+                <span class="icon-star text-warning"></span>
+            </div>
+            <h3 class="h5 text-primary mb-4">@item.Name</h3>
+            <blockquote>
+                <p>
+                   @item.Message
+                </p>
+            </blockquote>
+            <p class="text-black-50">@item.Subject</p>
+        </div>
+    </div>
+}

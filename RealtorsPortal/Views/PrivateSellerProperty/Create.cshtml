@@ -1,0 +1,94 @@
+﻿@model RealtorsPortal.Models.Property
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/frontend.cshtml";
+}
+<div class="hero page-inner overlay"
+     style="background-image: url('/Files/images/hero_bg_1.jpg')">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Sell your property</h1>
+
+                <nav aria-label="breadcrumb"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active text-white-50"
+                            aria-current="page">
+                            Sell your property
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="text-center mt-5 mb-4">Create Your Property Listing</h1>
+<h4 class="text-muted text-center">Fill in the details below to list your property for sale.</h4>
+<hr class="mb-4" />
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" required class="form-control" placeholder="Property Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input asp-for="Address" required class="form-control" placeholder="Property Address" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Image" class="form-label"></label>
+                            <input asp-for="Image" required type="file" class="form-control" accept="image/*" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Price" class="form-label"></label>
+                            <input asp-for="Price" required class="form-control" placeholder="Price" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Bedrooms" class="form-label"></label>
+                            <input asp-for="Bedrooms" required class="form-control" placeholder="Number of Bedrooms" />
+                            <span asp-validation-for="Bedrooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Bathrooms" class="form-label"></label>
+                            <input asp-for="Bathrooms" required class="form-control" placeholder="Number of Bathrooms" />
+                            <span asp-validation-for="Bathrooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="PrivateSellerId" class="form-label"></label>
+                            @Html.Partial("_addpro", ViewData["privatesellerz"])
+                        </div>
+
+                        <div class="text-center">
+                            <input type="submit" value="Create Property" class="btn btn-success btn-lg" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Properties" asp-controller="Frontend" class="btn btn-outline-primary">Show Properties</a>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewData["Title"] = "PropertyDetail";
+    Layout = "~/Views/Shared/frontend.cshtml";
+}
+@model List<Property>
+ <div
+      class="hero page-inner overlay"
+      style="background-image: url('/Files/images/hero_bg_3.jpg')"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">
+              @Model[0].Name
+            </h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="properties.html">Properties</a>
+                </li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  @Model[0].Name
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-7">
+            <div>
+              <div>
+                <img src="@("~/Propertyimages/"+Model[0].Image)" asp-append-version=true alt="Image" class="img-fluid" />
+                    
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h2 class="heading text-primary">@Model[0].Name</h2>
+            <p class="meta">@Model[0].Address</p>
+            <p class="text-black-50">
+             Bedrooms: @Model[0].Bedrooms
+            </p>
+            <p class="text-black-50">
+                    Bathrooms: @Model[0].Bathrooms
+            </p>
+                <p class="text-black-50">
+                    Price: @Model[0].Price
+                </p>
+
+                <div class="d-block agent-box p-5">
+                    @if (Model[0].Agent != null)
+                    {
+                        <div class="text">
+                            <h3 class="mb-0">@Model[0].Agent.Name</h3>
+                            <div class="meta mb-3">@Model[0].Agent.PhoneNumber</div>
+                            <div class="meta mb-3">@Model[0].Agent.Email</div>
+                            <ul class="list-unstyled social dark-hover d-flex">
+                                <li class="me-1"><a href="#"><span class="icon-instagram"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-linkedin"></span></a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text">
+                            <h3 class="mb-0">@Model[0].PrivateSeller.Name</h3>
+                            <div class="meta mb-3">@Model[0].PrivateSeller.PhoneNumber</div>
+                            <div class="meta mb-3">@Model[0].PrivateSeller.Email</div>
+                            <ul class="list-unstyled social dark-hover d-flex">
+                                <li class="me-1"><a href="#"><span class="icon-instagram"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="me-1"><a href="#"><span class="icon-linkedin"></span></a></li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RealtorsPortal.Models.Property>
+
+@{
+    Layout = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table {
+            margin-top: 20px;
+        }
+
+            .table th, .table td {
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            .table img {
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+        .btn-action {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>Property List</h3>
+            <a class="btn btn-primary" asp-action="Create">Create New</a>
+        </div>
+
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Price)</th>
+                    <th>Agent</th>
+                    <th>Private Seller</th>
+                    <th>Property Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Agent.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrivateSeller.Name)</td>
+                        <td>
+                            <img src="@("~/Propertyimages/"+item.Image)" asp-append-version="true" width="100" height="100" />
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-action" asp-action="Edit" asp-route-id="@item.Property_Id">Edit</a>
+                            <a class="btn btn-info btn-action" asp-action="Details" asp-route-id="@item.Property_Id">Details</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Property_Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

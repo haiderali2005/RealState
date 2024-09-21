@@ -1,0 +1,35 @@
+﻿@model List<Team>
+@foreach (var item in Model)
+{
+    <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+        <div class="h-100 person">
+            <img src="@("~/Teampics/"+item.Image)"
+                 alt="Image"
+                 class="img-fluid" asp-append-version=true />
+
+            <div class="person-contents">
+                <h2 class="mb-0"><a href="#">@item.Name</a></h2>
+                <span class="meta d-block mb-3">@item.Designation</span>
+                <p>
+                    @item.Description
+                </p>
+
+                <ul class="social list-unstyled list-inline dark-hover">
+                    <li class="list-inline-item">
+                        <a href="#"><span class="icon-twitter"></span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><span class="icon-facebook"></span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><span class="icon-linkedin"></span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#"><span class="icon-instagram"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+

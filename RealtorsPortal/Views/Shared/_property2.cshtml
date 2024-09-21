@@ -1,0 +1,34 @@
+﻿@model List<Property>
+@foreach (var item in Model)
+{
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="property-item mb-30">
+            <a href="property-single.html" class="img">
+                <img src="@("~/Propertyimages/"+@item.Image)" asp-append-version=true alt="Image" class="img-fluid" />
+            </a>
+
+            <div class="property-content">
+                <div class="price mb-2"><span>@item.Price</span></div>
+                <div>
+                    <span class="d-block mb-2 text-black-50">@item.Name</span>
+                    <span class="city d-block mb-3">@item.Address</span>
+
+                    <div class="specs d-flex mb-4">
+                        <span class="d-block d-flex align-items-center me-3">
+                            <span class="icon-bed me-2"></span>
+                            <span class="caption">@item.Bedrooms</span>
+                        </span>
+                        <span class="d-block d-flex align-items-center">
+                            <span class="icon-bath me-2"></span>
+                            <span class="caption">@item.Bathrooms</span>
+                        </span>
+                    </div>
+
+                    <a href="@Url.Action("PropertyDetail","Frontend",new{id=item.Property_Id})"
+                       class="btn btn-primary py-2 px-3">See details</a>
+                </div>
+            </div>
+        </div>
+        <!-- .item -->
+    </div>
+}

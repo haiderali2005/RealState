@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/Dashboard.cshtml";
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-2 text-primary">Welcome to Realtors Portal</h1>
+        <p class="lead text-secondary">Your comprehensive hub for real estate management and insights.</p>
+    </div>
+
+    <!-- Dashboard Cards Section -->
+    <div class="row">
+        <!-- Properties Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-primary shadow-lg rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4 text-primary">Properties Overview</h4>
+                    <p class="card-text">Manage and oversee all your listed properties efficiently.</p>
+                    <a class="btn btn-outline-primary" href="@Url.Action("Index", "Property")">
+                        <i class="fas fa-home me-2"></i> Manage Properties
+                    </a>
+                </div>
+                <div class="card-footer bg-primary text-white">
+                    <small>Last updated: 2 hours ago</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agents Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-info shadow-lg rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4 text-info">Agent Management</h4>
+                    <p class="card-text">View and manage your real estate agents with ease.</p>
+                    <a class="btn btn-outline-info" href="@Url.Action("Index", "Agents")">
+                        <i class="fas fa-user-tie me-2"></i> Manage Agents
+                    </a>
+                </div>
+                <div class="card-footer bg-info text-white">
+                    <small>Last updated: 5 hours ago</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Inquiries Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-success shadow-lg rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4 text-success">User Inquiries</h4>
+                    <p class="card-text">Handle inquiries and messages from potential buyers.</p>
+                    <a class="btn btn-outline-success" href="@Url.Action("Index", "Contact")">
+                        <i class="fas fa-comments me-2"></i> View Inquiries
+                    </a>
+                </div>
+                <div class="card-footer bg-success text-white">
+                    <small>Last updated: 1 day ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Statistics Section -->
+    <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+            <div class="card border-warning shadow-lg rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4 text-warning">Private Sellers</h4>
+                    <p class="card-text">Manage and track private seller listings effectively.</p>
+                    <a class="btn btn-outline-warning" href="@Url.Action("Index", "PrivateSellersDashboard")">
+                        <i class="fas fa-user-secret me-2"></i> View Private Sellers
+                    </a>
+                </div>
+                <div class="card-footer bg-warning text-white">
+                    <small>Last updated: 2 days ago</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card border-secondary shadow-lg rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4 text-secondary">Team Management</h4>
+                    <p class="card-text">Organize and manage your real estate team effectively.</p>
+                    <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Team")">
+                        <i class="fas fa-users me-2"></i> Manage Team
+                    </a>
+                </div>
+                <div class="card-footer bg-secondary text-white">
+                    <small>Last updated: Weekly</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- Custom CSS for hover effects -->
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+</style>

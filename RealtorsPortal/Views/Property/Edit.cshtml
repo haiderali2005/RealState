@@ -1,0 +1,115 @@
+﻿@model RealtorsPortal.Models.Property
+
+@{
+    Layout = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Property</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .form-control, .btn {
+            border-radius: 6px;
+        }
+
+        img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <h4>Edit Property</h4>
+                    <hr />
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Property_Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Property Name</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label">Address</label>
+                            <input asp-for="Address" class="form-control" required />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label">Price</label>
+                            <input asp-for="Price" class="form-control" required />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Bedrooms" class="form-label">Bedrooms</label>
+                            <input asp-for="Bedrooms" class="form-control" required />
+                            <span asp-validation-for="Bedrooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Bathrooms" class="form-label">Bathrooms</label>
+                            <input asp-for="Bathrooms" class="form-control" required />
+                            <span asp-validation-for="Bathrooms" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Image" class="form-label">Current Property Image</label><br />
+                            <img src="@("~/Propertyimages/"+Model.Image)" asp-append-version=true width="300" height="200" /><br />
+                            <label asp-for="Image" class="form-label mt-2">Update Property Image</label>
+                            <input asp-for="Image" type="file" class="form-control" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Id" class="form-label">Select Agent</label>
+                            @Html.Partial("_agent", ViewData["agentz"])
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-block">
+                            <input type="submit" value="Save" class="btn btn-primary btn-lg me-3" />
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

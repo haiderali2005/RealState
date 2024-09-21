@@ -1,0 +1,8 @@
+﻿@model List<Agent>;
+<select class="form-select" name="Id">
+    <option hidden>Select Agent</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Name</option>
+    }
+</select>

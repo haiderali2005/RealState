@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/frontend.cshtml";
+}
+
+<div class="hero page-inner overlay"
+     style="background-image: url('/Files/images/hero_bg_1.jpg')">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Services</h1>
+
+                <nav aria-label="breadcrumb"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active text-white-50"
+                            aria-current="page">
+                            Services
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house mb-4 d-block"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">
+                        Quality Properties
+                    </h3>
+                    <p class="text-black-50">
+                        Far, far away, beyond the majestic mountains, in the vibrant communities of Vokalia and Consonantia, the hidden gems of real estate await, ready to tell stories of new beginnings and dream homes.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house-2 mb-4 d-block-3"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">Top Rated Agent</h3>
+                    <p class="text-black-50">
+                        Nestled in picturesque valleys, our properties promise a tranquil escape, where every sunrise brings new possibilities for your dream home.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-building mb-4 d-block"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">
+                        Property for Sale
+                    </h3>
+                    <p class="text-black-50">
+                        In the heart of bustling neighborhoods, discover vibrant communities filled with charming homes and friendly faces, waiting to welcome you.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house-3 mb-4 d-block-1"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">House for Sale</h3>
+                    <p class="text-black-50">
+                        Just beyond the city lights, find a serene retreat that blends modern living with nature's beauty, creating the perfect haven for relaxation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house-4 mb-4 d-block"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">
+                        Quality Properties
+                    </h3>
+                    <p class="text-black-50">
+                        Amidst the whispers of the wind and rustling leaves, our homes offer a unique blend of comfort and elegance, inviting you to create lasting memories.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-building mb-4 d-block-3"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">Top Rated Agent</h3>
+                    <p class="text-black-50">
+                        Where urban sophistication meets suburban charm, our properties redefine modern living, making every day feel like a new adventure.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house mb-4 d-block"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">
+                        Property for Sale
+                    </h3>
+                    <p class="text-black-50">
+                        In a world where dreams take root, our real estate offerings stand as pillars of opportunity, ready for you to build your future upon.
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="box-feature mb-4">
+                    <span class="flaticon-house-1 mb-4 d-block-1"></span>
+                    <h3 class="text-black mb-3 font-weight-bold">House for Sale</h3>
+                    <p class="text-black-50">
+                        Step into a realm of endless possibilities, where each property tells a story of craftsmanship and care, waiting for you to write the next chapter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section sec-testimonials">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
+                    Customer Says
+                </h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div id="testimonial-nav">
+                    <span class="prev" data-controls="prev">Prev</span>
+
+                    <span class="next" data-controls="next">Next</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="testimonial-slider-wrap">
+            <div class="testimonial-slider">
+                @Html.Partial("_customer", ViewData["contactz"])
+
+            </div>
+        </div>
+    </div>
+</div>
+
